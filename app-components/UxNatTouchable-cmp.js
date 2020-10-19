@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TouchableHighlight } from "react-native";
 
-import { useHistory } from "react-router-native";
+import { useHistory, useLocation } from "react-router-native";
 
 export const UxNatTouchable = ({
   children,
@@ -12,8 +12,9 @@ export const UxNatTouchable = ({
   selectedStyle
 }) => {
   const history = useHistory();
+  const location = useLocation();
 
-  const isCurrentRoute = history.location.pathname === routerPush;
+  const isCurrentRoute = location.pathname === routerPush;
 
   let action;
   if (routerBack) {
