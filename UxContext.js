@@ -60,7 +60,24 @@ const UxContext = React.createContext({
       },
       contextualMenuTextIconText: {
         display: "none"
-      }
+      },
+
+      // ListItem
+      listItemTitle: {
+        fontSize: 16
+      },
+      listItemSubtitle: {
+        color: "grey"
+      },
+
+      // Button
+      button: {
+        backgroundColor: `${fullBgColor}D7`
+      },
+      buttonText: {
+        color: `${inkColor}E0`,
+        fontWeight: "bold"
+      },
     })
   }
 });

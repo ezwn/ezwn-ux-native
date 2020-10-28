@@ -3,7 +3,6 @@ import { View, StyleSheet } from "react-native";
 
 const invariantStyleSheet = StyleSheet.create({
   horizontalLayout: {
-    flex: 1,
     flexDirection: "row",
     alignItems: "stretch",
     justifyContent: "center"
