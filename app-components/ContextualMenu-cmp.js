@@ -22,7 +22,7 @@ const invariantStyleSheet = StyleSheet.create({
 
 export const ContextualMenu = ({ children }) => {
   const {
-    style: { styleSheet }
+    styleSheet
   } = useUxContext();
 
   return (
@@ -36,7 +36,7 @@ export const ContextualMenu = ({ children }) => {
 
 ContextualMenu.Choice = ({ children, onPress, routerPush, routerBack }) => {
   const {
-    style: { styleSheet, contextualMenuIconColor }
+    styleSheet, contextualMenuIconColor
   } = useUxContext();
 
   return (

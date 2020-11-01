@@ -16,7 +16,7 @@ const invariantStyleSheet = StyleSheet.create({
 
 export const VerticalBorderLayout = ({ top, children, bottom }) => {
   const {
-    style: { styleSheet }
+    styleSheet
   } = useUxContext();
 
   return (

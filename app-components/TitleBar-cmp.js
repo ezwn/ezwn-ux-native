@@ -30,7 +30,7 @@ const invariantStyleSheet = StyleSheet.create({
 
 export const TitleBar = ({ text, left, right }) => {
   const {
-    style: { styleSheet }
+    styleSheet
   } = useUxContext();
 
   return (
@@ -46,7 +46,7 @@ export const TitleBar = ({ text, left, right }) => {
 
 TitleBar.Button = ({ children, onPress }) => {
   const {
-    style: { styleSheet, titleBarButtonIconColor }
+    styleSheet, titleBarButtonIconColor
   } = useUxContext();
 
   return (

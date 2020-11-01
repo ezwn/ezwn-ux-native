@@ -17,7 +17,7 @@ const invariantStyleSheet = StyleSheet.create({
 
 export const NavigationMenu = ({ children }) => {
   const {
-    style: { styleSheet }
+    styleSheet
   } = useUxContext();
 
   return (
@@ -31,7 +31,7 @@ export const NavigationMenu = ({ children }) => {
 
 NavigationMenu.Choice = ({ children, onPress, routerPush, routerBack }) => {
   const {
-    style: { styleSheet, navigationMenuIconColor }
+    styleSheet, navigationMenuIconColor
   } = useUxContext();
 
   return (
