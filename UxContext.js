@@ -66,7 +66,8 @@ export const createUxStyle = ({
       fontSize: 16
     },
     listItemSubtitle: {
-      color: "grey"
+      fontSize: 12,
+      color: "#A0A0A0"
     },
 
     // Button
