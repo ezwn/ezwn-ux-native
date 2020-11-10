@@ -78,6 +78,13 @@ export const createUxStyle = ({
       borderBottomLeftRadius: 5,
       borderBottomRightRadius: 5
     },
+    buttonAlt: {
+      backgroundColor: `${fullAltBgColor}D7`,
+      borderTopLeftRadius: 5,
+      borderTopRightRadius: 5,
+      borderBottomLeftRadius: 5,
+      borderBottomRightRadius: 5
+    },
     buttonText: {
       color: `${inkColor}E0`,
       fontWeight: "bold"
