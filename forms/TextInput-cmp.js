@@ -1,21 +1,24 @@
 import React from "react";
-import { TextInput as ReactNativeTextInput } from "react-native";
+import { StyleSheet, TextInput as ReactNativeTextInput } from "react-native";
+
+const invariantStyleSheet = StyleSheet.create({
+  field: {
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    paddingLeft: 4,
+    paddingRight: 4
+  }
+});
 
 export const TextInput = ({
   onChangeText,
   value,
   autoFocus,
-  multiline,
-  height
+  multiline
 }) => (
   <ReactNativeTextInput
-    style={{
-      height: height || 40,
-      borderColor: "gray",
-      borderWidth: 1,
-      paddingLeft: 4,
-      paddingRight: 4
-    }}
+    style={invariantStyleSheet.field}
     autoFocus={!!autoFocus}
     onChangeText={onChangeText}
     value={value}
