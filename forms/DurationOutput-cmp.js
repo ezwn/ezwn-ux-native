@@ -1,10 +1,10 @@
 import React from "react";
 
-export const durationToString = duration => {
-    const hours = Math.floor(duration / 3600);
+export const durationToString = value => {
+    const hours = Math.floor(value / 3600);
     const mins = Math.floor(
-        (duration - hours * 3600) / 60);
-    const secs = Math.floor(duration - hours * 3600 - mins * 60);
+        (value - hours * 3600) / 60);
+    const secs = Math.floor(value - hours * 3600 - mins * 60);
 
     const message = (hours ? `${hours} hour(s)` : "")
         + (mins ? ` ${mins} min.` : "")
@@ -13,6 +13,6 @@ export const durationToString = duration => {
     return message.trim();
 }
 
-export const DurationOutput = ({ duration }) => {
-    return <>{durationToString(duration)}</>;
+export const DurationOutput = ({ value }) => {
+    return <>{durationToString(value)}</>;
 }

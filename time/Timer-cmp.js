@@ -56,7 +56,7 @@ export const Timer = ({ name, onDone }) => {
   return <HorizontalLayout>
     <View style={{ flex: 1 }}>
       <ListItem.Title>{name}</ListItem.Title>
-      <ListItem.SubTitle><DurationOutput duration={duration} /></ListItem.SubTitle>
+      <ListItem.SubTitle><DurationOutput value={duration} /></ListItem.SubTitle>
     </View>
     {
       !startTime
