@@ -7,7 +7,9 @@ const invariantStyleSheet = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 1,
     paddingLeft: 4,
-    paddingRight: 4
+    paddingRight: 4,
+    paddingTop: 4,
+    paddingBottom: 4
   }
 });
 
@@ -15,13 +17,17 @@ export const TextInput = ({
   onChangeText,
   value,
   autoFocus,
-  multiline
-}) => (
-  <ReactNativeTextInput
-    style={invariantStyleSheet.field}
+  multiline,
+  height
+}) => {
+
+  const style = multiline ? [invariantStyleSheet.field, { height }] : invariantStyleSheet.field;
+
+  return <ReactNativeTextInput
+    style={style}
     autoFocus={!!autoFocus}
     onChangeText={onChangeText}
     value={value}
     multiline={multiline}
   />
-);
+};
