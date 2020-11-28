@@ -1,9 +1,10 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import { SafeAreaView, StyleSheet, StatusBar, Platform } from "react-native";
 
 const invariantStyleSheet = StyleSheet.create({
   appViewport: {
-    flex: 1
+    flex: 1,
+    height: Platform.OS === 'web' ? "100vh" : undefined
   }
 });
 
