@@ -1,6 +1,9 @@
 import React from "react";
 
 export const durationToString = value => {
+    if (value===0)
+        return "0";
+
     const hours = Math.floor(value / 3600);
     const mins = Math.floor(
         (value - hours * 3600) / 60);
