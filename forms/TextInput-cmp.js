@@ -14,20 +14,23 @@ const invariantStyleSheet = StyleSheet.create({
 });
 
 export const TextInput = ({
-  onChangeText,
-  value,
+  onChangeText: onChange,
+  value: initialValue,
   autoFocus,
   multiline,
   height
 }) => {
+
+  const [value, onChangeText] = React.useState(initialValue);
 
   const style = multiline ? [invariantStyleSheet.field, { height }] : invariantStyleSheet.field;
 
   return <ReactNativeTextInput
     style={style}
     autoFocus={!!autoFocus}
-    onChangeText={onChangeText}
     value={value}
+    onChangeText={onChangeText}
+    onBlur={() => onChange(value)}
     multiline={multiline}
   />
 };
