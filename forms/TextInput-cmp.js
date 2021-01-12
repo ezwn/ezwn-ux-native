@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, TextInput as ReactNativeTextInput } from "react-native";
 
 const invariantStyleSheet = StyleSheet.create({
@@ -14,14 +14,22 @@ const invariantStyleSheet = StyleSheet.create({
 });
 
 export const TextInput = ({
-  onChangeText: onChange,
+  onChange,
   value: initialValue,
   autoFocus,
   multiline,
   height
 }) => {
+  if (!onChange)
+    throw new Error()
 
   const [value, onChangeText] = React.useState(initialValue);
+
+  useEffect(() => {
+    if (initialValue !== value) {
+      onChangeText(initialValue);
+    }
+  }, [initialValue])
 
   const style = multiline ? [invariantStyleSheet.field, { height }] : invariantStyleSheet.field;
 

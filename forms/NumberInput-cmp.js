@@ -19,7 +19,7 @@ export const NumberInput = ({ onChangeNumber, value, autoFocus }) => {
   return (
     <TextInput
       autoFocus={!!autoFocus}
-      onChangeText={onChangeText}
+      onChange={onChangeText}
       value={textValue}
     />
   );

@@ -4,7 +4,7 @@ import { useHistory } from "react-router";
 
 import { useUxContext } from "../UxContext";
 import { BackTextIcon } from "../text-icons/BackTextIcon-cmp";
-import { SettingsTextIcon } from "ezwn-ux-native/text-icons/SettingsTextIcon-cmp";
+import { FontAwesomeTextIcon } from "ezwn-ux-native/text-icons/FontAwsomeTextIcon-cmp";
 
 const invariantStyleSheet = StyleSheet.create({
   titleBar: {
@@ -76,7 +76,7 @@ TitleBar.SettingsButton = () => {
 
   return (
     <TitleBar.Button onPress={() => history.push("/settings")}>
-      <SettingsTextIcon />
+      <FontAwesomeTextIcon fontAwesomeIcon="faBars" text="BACK" />
     </TitleBar.Button>
   );
 };
