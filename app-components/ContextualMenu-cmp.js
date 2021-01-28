@@ -34,19 +34,20 @@ export const ContextualMenu = ({ children }) => {
   );
 };
 
-ContextualMenu.Choice = ({ children, onPress, routerPush, routerBack }) => {
+ContextualMenu.Choice = ({ children, onPress, routerPush, routerBack, enabled }) => {
   const {
     styleSheet, contextualMenuIconColor
   } = useUxContext();
 
   return (
     <UxNatTouchable
-      onPress={onPress}
+      onPress={enabled && onPress}
       routerPush={routerPush}
       routerBack={routerBack}
       styles={[
         invariantStyleSheet.contextualMenuChoice,
-        styleSheet.contextualMenuChoice
+        styleSheet.contextualMenuChoice,
+        { opacity: enabled ? 1.0 : 0.1 }
       ]}
     >
       {React.cloneElement(children, {
@@ -56,6 +57,10 @@ ContextualMenu.Choice = ({ children, onPress, routerPush, routerBack }) => {
     </UxNatTouchable>
   );
 };
+
+ContextualMenu.Choice.defaultProps = {
+  enabled: true
+}
 
 ContextualMenu.BackChoice = () => {
   const history = useHistory();

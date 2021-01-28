@@ -16,7 +16,6 @@ export const DateTimeInput = ({ value: initialValue, onChange, onValidityChange 
 
   useEffect(() => {
     const datetime = `${date}T${time}`;
-    console.log(datetime)
     onChange(datetime);
   }, [date, time]);
 

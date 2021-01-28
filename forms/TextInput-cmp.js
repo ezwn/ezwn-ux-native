@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { StyleSheet, TextInput as ReactNativeTextInput } from "react-native";
 
-const isTextValid = ({ nullable, minLength=null, maxLength=null }) => (value) => {
+const isTextValid = ({ nullable, minLength=null, maxLength=null, pattern=null }) => (value) => {
   if (!nullable && (value===null || value===undefined)) {
     return false;
   }
@@ -11,6 +11,10 @@ const isTextValid = ({ nullable, minLength=null, maxLength=null }) => (value) =>
   }
 
   if (maxLength!==null && value.length>maxLength) {
+    return false;
+  }
+
+  if (pattern && !(pattern.test(value))) {
     return false;
   }
 
@@ -41,13 +45,16 @@ export const TextInput = ({
   minLength,
   maxLength,
   forceInvalid,
-  style: incomingStyle
+  style: incomingStyle,
+  pattern
 }) => {
   if (!onChange)
     throw new Error()
 
+  const validator = isTextValid({ nullable, minLength, maxLength, pattern })
+
   const [value, setValue] = React.useState(initialValue);
-  const [valid, setValid] = React.useState(isTextValid({ nullable, minLength, maxLength })(initialValue));
+  const [valid, setValid] = React.useState(validator(initialValue));
 
   const updateValid = (valid, value) => {
     setValid(valid);
@@ -55,13 +62,13 @@ export const TextInput = ({
   }
 
   useEffect(() => {
-    updateValid(isTextValid({ nullable, minLength, maxLength })(initialValue), initialValue);
+    updateValid(validator(initialValue), initialValue);
   }, []);
 
   useEffect(() => {
     if (initialValue !== value) {
       setValue(initialValue);
-      updateValid(isTextValid({ nullable, minLength, maxLength })(initialValue), initialValue);
+      updateValid(validator(initialValue), initialValue);
     }
   }, [initialValue])
 
@@ -73,7 +80,7 @@ export const TextInput = ({
 
   const onChangeText = (value) => {
     setValue(value);
-    const validity = isTextValid({ nullable, minLength, maxLength })(value);
+    const validity = validator(value);
     updateValid(validity, value);
   };
 
