@@ -14,10 +14,16 @@ const invariantStyleSheet = StyleSheet.create({
   }
 });
 
-export const VerticalBorderLayout = ({ top, children, bottom }) => {
+export const VerticalBorderLayout = ({ top, children, bottom, style }) => {
   const {
     styleSheet
   } = useUxContext();
+
+  const middelArreaStyle = [invariantStyleSheet.middleArea];
+
+  if (style) {
+    middelArreaStyle.push(style);
+  }
 
   return (
     <View
@@ -27,7 +33,7 @@ export const VerticalBorderLayout = ({ top, children, bottom }) => {
       ]}
     >
       {top}
-      <View style={invariantStyleSheet.middleArea}>{children}</View>
+      <View style={middelArreaStyle}>{children}</View>
       {bottom}
     </View>
   );

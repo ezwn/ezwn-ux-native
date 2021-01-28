@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "react-native";
 
 export const datetimeToString = value => {
     const datetime = new Date(value + ".000Z");
@@ -7,5 +8,5 @@ export const datetimeToString = value => {
 }
 
 export const DatetimeOutput = ({ value }) => {
-    return <>{datetimeToString(value)}</>;
+    return <Text>{datetimeToString(value)}</Text>;
 }

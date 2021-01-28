@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "react-native";
 
 export const durationToString = value => {
     if (value===0)
@@ -17,5 +18,5 @@ export const durationToString = value => {
 }
 
 export const DurationOutput = ({ value }) => {
-    return <>{durationToString(value)}</>;
+    return <Text>{durationToString(value)}</Text>;
 }

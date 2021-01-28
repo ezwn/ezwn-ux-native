@@ -87,7 +87,8 @@ export const createUxStyle = ({
     },
     buttonText: {
       color: `${inkColor}E0`,
-      fontWeight: "bold"
+      fontWeight: "bold",
+      textAlign: "center"
     },
   })
 });

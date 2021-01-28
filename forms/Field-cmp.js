@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 const invariantStyleSheet = StyleSheet.create({
   field: {
@@ -7,6 +7,9 @@ const invariantStyleSheet = StyleSheet.create({
   }
 });
 
-export const Field = ({ children }) => {
-  return <View style={invariantStyleSheet.field}>{children}</View>;
+export const Field = ({ children, label }) => {
+  return <View style={invariantStyleSheet.field}>
+    {label && <Text>{label}</Text>}
+    {children}
+  </View>;
 };

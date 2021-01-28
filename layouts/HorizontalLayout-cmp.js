@@ -9,6 +9,12 @@ const invariantStyleSheet = StyleSheet.create({
   }
 });
 
-export const HorizontalLayout = ({ children }) => {
-  return <View style={invariantStyleSheet.horizontalLayout}>{children}</View>;
+export const HorizontalLayout = ({ children, style }) => {
+
+  const styleList = [invariantStyleSheet.horizontalLayout];
+  if (style) {
+    styleList.push(style);
+  }
+
+  return <View style={styleList}>{children}</View>;
 };
